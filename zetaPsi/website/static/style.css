@@ -1,83 +1,188 @@
+@font-face {
+    font-family: "Archivo Narrow";
+    src: url("./fonts/ArchivoNarrow-VariableFont_wght.ttf") format("truetype-variations");
+    font-weight: 1 999;
+}
+
+@font-face {
+    font-family: "Tenor Sans";
+    src: url("./fonts/TenorSans-Regular.ttf");
+}
+
 body {
-    background: white;
-    background-image: linear-gradient(to right top, #000000, #270f15, #47111f, #691026, #8c0a2a, #a81e2a, #c23326, #da491e, #eb6f0e, #f79400, #feb900, #ffde00);
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Tenor Sans';
+    margin: 0;
+    background-color: #FFFFF0;
 }
 
-body > div {
-    display: flex;
-    /* border: black solid; */
-}
-
-h2 {
-    text-align: center;
-}
-
-h3 {
-    font-size: 1.5rem;
-    text-align: center;
-}
-
-.container {
-    /* outline: red dotted; */
-    background: white;
-    display: flex;
-    flex-direction: column;
-    position: sticky;
-    top: 5vh;
+.background {
+    background-image: url( './img/layered-waves-haikei.svg' );
+    background-repeat: no-repeat;
+    background-position: bottom -200px right 0px;
+    position: fixed;
     height: 100%;
-    width: 33%;
-    margin-right: 4rem;
-    box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
+    width:100%;
+    z-index: -1;
 }
 
 nav {
-    /* border: solid blue; */
-    width: 100%;
+    width: 93%;
+    margin: 1rem auto;
     height: auto;
-}
-
-nav > img {
-    width: 90%;
-    display: block;
-    margin: 0 auto;
+    font-family: 'Archivo Narrow';
+    border-bottom: 1px solid rgba(55, 50, 46, 0.927);
+    color: rgba(55, 50, 46, 0.927);
 }
 
 nav > div {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: right;
 }
+
 
 nav a {
     text-decoration: none;
     display: inline-block;
     width: auto;
-    margin: 1rem 1rem;
+    margin: auto 1rem;
+    font-size: 1.75rem;
+    font-family: 'Archivo Narrow';
+}
+
+nav img {
+    margin: 1rem auto 1rem 1rem;
+}
+
+h1 {
+    font-family: 'Archivo Narrow';
+    text-align: center;
+    font-size: 2rem;
+}
+
+h3 {
     font-size: 1.5rem;
+    text-align: center;
+    font-family: "Archivo Narrow";
+}
+
+h4 {
+    font-size: 1.25rem;
+    text-align: center;
+    font-family: "Archivo Narrow";
+
+}
+
+.contentWrapper {
+    display: flex;
+}
+
+.container {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 2vh;
+    width: 40%;
+    height: min-content;
+    margin: 4rem 4rem 4rem auto;
+    box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+.container > img {
+    width: 90%;
+    display: block;
+    margin: 0 auto;
 }
 
 form {
-    /* outline: red solid; */
     margin: 0.5rem 1rem;
     display: flex;
     flex-direction: column;
+    font-family: 'Archivo Narrow';
 }
 
 form > input, label {
     font-size: 1.3rem;
     margin: 0.5rem;
+    color: rgb(25, 23, 23);
+    font-family: 'Tenor Sans';
 }
 
-main {
-    /* border: solid red; */
+.homeContent {
     width: 60%;
-    height: 100vh;
+    margin-bottom: 4rem;
+    padding: 1rem 4rem;
 }
 
-main section {
-    width: auto;
-    margin: 1rem 5rem;
+.homeContent section {
+    width: 100%;
     font-size: 1.5rem;
-    color: white;
+    color: rgba(55, 50, 46, 0.927);
+}
+
+.eventWrapper {
+    border-radius: 10px;
+    border: 1px solid rgba(55, 50, 46, 0.927);
+    display: flex;
+    flex-direction: column;
+    width: 67%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+
+.titleWrapper{
+    display: flex;
+}
+
+#eventTitle {
+    margin: 1rem 0 0 1rem;
+    font-family: 'Archivo Narrow';
+}
+
+#eventDate {
+    margin: 0.25rem 0.25rem 0 auto;
+}
+
+#eventDescription {
+    margin: 1rem 2rem;
+}
+
+.fullContent {
+    margin: 4rem;
+    color: rgba(55, 50, 46, 0.927);
+}
+
+.fullContent > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.fullContent > div > div {
+    border: 1px solid black;
+    margin: 1rem;
+    padding: 0 1rem;
+    border-radius: 10px;
+    max-width: 25rem;
+    min-width: 5rem;
+}
+
+footer {
+    width: 93%;
+    margin: 1rem auto;
+    color: rgba(55, 50, 46, 0.927);
+    border-top: 1px solid rgba(55, 50, 46, 0.927);
+    font-family: 'Archivo Narrow';
+    display: flex;
+}
+
+footer > img {
+    margin: 1rem auto 1rem 1rem;
+    max-width: 100px;
+}
+
+footer > article {
+    margin: auto 1rem;
 }

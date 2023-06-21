@@ -19,40 +19,13 @@
 <header>
 </header>
 
-<div>
+<div class="background"></div>
 
-    <main>{% block content %} {% endblock %}</main>
+{% include 'partials/_header.html' %}
 
-    <div class="container">
-        <nav>
-            <img src="{% static 'img/zetaPsiBlackGoldLogo.PNG' %}"/>
-            <div>
-                <a href="home.html">Home</a>
-                <a href="members.html">Members</a>
-                <a href="events.html">Events</a>
-            </div>
-        </nav>
-        <div id="memberForm">
-            <h3>Become a Member</h3>
-            {% for msg in messages %}
-                {{ msg }}
-            {% endfor %}
-            <form action="" method="post">
-                {% csrf_token %}
-                {{form.as_table}}
-                <input type="submit" id="button">
-            </form>
-        </div>
-    </div>
-</div>
+{% block content %}{% endblock %}
 
-<footer>
-    <div>
-    </div>
-    <div id="copyright">
-
-    </div>
-</footer>
+{% include 'partials/_footer.html' %}
 
 </body>
 
