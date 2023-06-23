@@ -13,6 +13,7 @@ body {
     font-family: 'Tenor Sans';
     margin: 0;
     background-color: #FFFFF0;
+    color: rgba(55, 50, 46, 0.927);
 }
 
 .background {
@@ -38,6 +39,10 @@ nav > div {
     display: flex;
     flex-wrap: wrap;
     justify-content: right;
+}
+
+nav > div > div {
+    margin: auto 0 auto auto;
 }
 
 
@@ -108,6 +113,10 @@ h4 {
 
 .contentWrapper {
     display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .container {
@@ -116,9 +125,10 @@ h4 {
     flex-direction: column;
     position: sticky;
     top: 2vh;
-    width: 40%;
+    width: 30%;
+    min-width: 15rem;
     height: min-content;
-    margin: 4rem 4rem 4rem auto;
+    margin: 2rem auto 2rem auto;
     box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
 }
@@ -143,10 +153,19 @@ form > input, label {
     font-family: 'Tenor Sans';
 }
 
+#memberForm {
+    width: 50%;
+    margin: 2rem auto;
+}
+
+#submission {
+    text-align: center;
+}
+
 .homeContent {
     width: 60%;
-    margin-bottom: 4rem;
-    padding: 1rem 4rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .homeContent section {
@@ -160,13 +179,14 @@ form > input, label {
     border: 1px solid rgba(55, 50, 46, 0.927);
     display: flex;
     flex-direction: column;
-    width: 67%;
-    margin: 0 auto;
+    margin: auto;
+    width: 65%;
     margin-bottom: 1rem;
 }
 
 .titleWrapper{
     display: flex;
+    flex-wrap: wrap;
 }
 
 #eventTitle {
@@ -183,7 +203,7 @@ form > input, label {
 }
 
 .fullContent {
-    margin: 4rem;
+    margin: 1rem 5%;
     color: rgba(55, 50, 46, 0.927);
 }
 
@@ -194,12 +214,20 @@ form > input, label {
 }
 
 .fullContent > div > div {
-    border: 1px solid black;
+    border: 1px solid rgba(55, 50, 46, 0.927);
     margin: 1rem;
     padding: 0 1rem;
     border-radius: 10px;
     max-width: 25rem;
     min-width: 5rem;
+}
+
+.memberCard > img {
+    display: block;
+    width: 100%;
+    max-width: 20rem;
+    margin: 0 auto 1rem auto;
+    border-radius: 10px;
 }
 
 footer {
@@ -212,18 +240,55 @@ footer {
 }
 
 footer > img {
-    margin: 1rem auto 1rem 1rem;
+    margin: 1rem auto 2rem 1rem;
     max-width: 100px;
 }
 
 footer > article {
-    margin: auto 1rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    text-align: center;
 }
 
-footer > article > a {
-    margin: auto auto auto 1rem;
+#footerContent > div > a {
+    margin: 0rem 0.5rem;
 }
 
-footer > article > a > img {
-    max-width: 40px;
+#footerContent > div > a > img {
+    width: 40px;
+}
+
+@media screen and (max-width: 600px) {
+    .eventWrapper {
+        width: 100%
+    }
+    .homeContent {
+        width: 90%;
+    }
+    .container {
+        width: 90%;
+    }
+    #memberForm {
+        width: 90%;
+    }
+    .fullContent {
+        margin: 1rem 5%;
+    }
+
+    nav > div > div {
+        margin: auto;
+    }
+    nav a {
+        font-size: 1.25rem;
+    }
+    nav img {
+        margin: auto auto 1rem auto;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    nav a {
+        font-size: 1.25rem;
+        margin: 0 0.2rem 0 0.2rem;
+    }
 }

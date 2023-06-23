@@ -46,10 +46,10 @@
 
 <div class="container">
     <img src="{% static 'img/zetaPsiBlackGoldLogo.PNG' %}"/>
-    <div id="memberForm">
+    <div>
         <h3>Become a Member</h3>
         {% for msg in messages %}
-            {{ msg }}
+            <h3 id="submission">{{ msg }}</h3>
         {% endfor %}
         <form action="" method="post">
             {% csrf_token %}

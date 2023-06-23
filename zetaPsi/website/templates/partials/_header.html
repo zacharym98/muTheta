@@ -4,9 +4,11 @@
 <nav>
     <div>
         <img src="{% static 'img/zeta-psi-fraternity-logo.svg' %}"/>
-        <a class="link" href="{% url 'home' %}"><strong>Home</strong></a>
-        <a class="link" href="{% url 'about' %}"><strong>About</strong></a>
-        <a class="link" href="{% url 'memberList' %}"><strong>Members</strong></a>
-        <a class="link" href="{% url 'join' %}"><strong>Join</strong></a>
+        <div>
+            <a class="link" href="{% url 'home' %}"><strong>Home</strong></a>
+            <a class="link" href="{% url 'about' %}"><strong>About</strong></a>
+            <a class="link" href="{% url 'memberList' %}"><strong>Members</strong></a>
+            <a class="link" href="{% url 'join' %}"><strong>Join</strong></a>           
+        </div>
     </div>
 </nav>

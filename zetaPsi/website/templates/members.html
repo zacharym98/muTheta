@@ -1,2 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block content %}
+<div class="fullContent">
+<div>
+{% for member in members %}
+<div class="memberCard">
+    <h1>{{member.first_name}} {{member.last_name}}</h1>
+    <h3>{{member.position}}</h3>
+    <img src="{{ member.profilePhoto.url }}"/>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endblock %}

@@ -1,2 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block content %}
+<div id="memberForm">
+    <h1>Become a Member</h1>
+    {% for msg in messages %}
+        <h3 id="submission">{{ msg }}</h3>
+    {% endfor %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_table}}
+        <input type="submit" id="button">
+    </form>
+</div>
+{% endblock %}
