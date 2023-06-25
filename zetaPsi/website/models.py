@@ -6,7 +6,7 @@ import datetime
 class MembershipRequest(models.Model):
    first_name = models.CharField(max_length=200, verbose_name='First Name')    
    last_name = models.CharField(max_length=200, verbose_name='Last Name')
-   graduation_year = models.IntegerField(default=0, verbose_name='Graduation Year')
+   graduation_year = models.IntegerField(verbose_name='Graduation Year')
    email = models.EmailField()
 
    def __str__(self):
