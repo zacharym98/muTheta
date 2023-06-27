@@ -17,7 +17,7 @@ body {
 }
 
 .background {
-    background-image: url( './img/layered-waves-haikei.svg' );
+    background-image: url('img/layered-waves-haikei.svg');
     background-repeat: no-repeat;
     background-position: bottom -200px right 0px;
     position: fixed;
