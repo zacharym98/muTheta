@@ -146,5 +146,5 @@ DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True
 # https://pypi.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# import django_heroku
-# django_heroku.settings(locals())
+import django_heroku
+django_heroku.settings(locals())
