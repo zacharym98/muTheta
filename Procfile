@@ -1,1 +1,1 @@
-web: gunicorn zetaPsi.wsgi
+web: python3 manage.py migrate && gunicorn zetaPsi.wsgi
