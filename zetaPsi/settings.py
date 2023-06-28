@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '&B!716Ls7pEg1h&Y@%78h$jT4XJ!wi
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = True
+DEBUG = False
 # DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = ['muthetazetapsiwebsite-73ea06594d39.herokuapp.com','mutheta-0f1d1d9db025.herokuapp.com','127.0.0.1','localhost']
@@ -81,8 +81,12 @@ WSGI_APPLICATION = 'zetaPsi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'muTheta', 
+    'USER': 'postgres',
+    'PASSWORD': 'lionelmessi10',
+    'HOST': '127.0.0.1', 
+    'PORT': '5432',
     }
 }
 
