@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '&B!716Ls7pEg1h&Y@%78h$jT4XJ!wi
 DEBUG = False
 # DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['muthetazetapsiwebsite-73ea06594d39.herokuapp.com','mutheta-0f1d1d9db025.herokuapp.com','127.0.0.1','localhost']
+ALLOWED_HOSTS = ['mutheta-0f1d1d9db025.herokuapp.com','127.0.0.1','localhost']
 
 
 # Application definition
@@ -140,8 +140,7 @@ MEDIA_URL = '/media/'
 
 # Update database configuration from $DATABASE_URL.
 import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 # Simplified static file serving.
 # https://pypi.org/project/whitenoise/
