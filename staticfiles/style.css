@@ -1,0 +1,322 @@
+@font-face {
+    font-family: "Archivo Narrow";
+    src: url("./fonts/ArchivoNarrow-VariableFont_wght.ttf") format("truetype-variations");
+    font-weight: 1 999;
+}
+
+@font-face {
+    font-family: "Tenor Sans";
+    src: url("./fonts/TenorSans-Regular.ttf");
+}
+
+body {
+    font-family: 'Tenor Sans';
+    margin: 0;
+    background-color: #FFFFF0;
+    color: rgba(55, 50, 46, 0.927);
+}
+
+.background {
+    background-image: url('img/layered-waves-haikei.svg');
+    background-repeat: no-repeat;
+    background-position: bottom -200px right 0px;
+    position: fixed;
+    height: 100%;
+    width:100%;
+    z-index: -1;
+}
+
+nav {
+    width: 93%;
+    margin: 1rem auto;
+    height: auto;
+    font-family: 'Archivo Narrow';
+    border-bottom: 1px solid rgba(55, 50, 46, 0.927);
+    color: rgba(55, 50, 46, 0.927);
+}
+
+nav > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+}
+
+nav > div > div {
+    margin: auto 0 auto auto;
+}
+
+
+nav a {
+    text-decoration: none;
+    width: auto;
+    margin: auto 1rem;
+    font-size: 1.75rem;
+    font-family: 'Archivo Narrow';
+}
+
+nav img {
+    margin: 1rem auto 1rem 1rem;
+}
+
+.link {
+    display: inline-block;
+    position: relative;
+    color: rgba(45, 42, 40, 0.927);
+    text-decoration: none;
+}
+
+.link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(55, 50, 46, 0.927);
+    transform-origin: center;
+    transition: transform 0.25s ease-out;
+}
+
+p > .link {
+    color: #0087ca;
+}
+
+p > .link::after {
+    height: 1px;
+    background-color: #0087ca;
+}
+
+.link:hover::after {
+    transform: scaleX(1);
+    transform-origin: center;
+}
+
+h1 {
+    font-family: 'Archivo Narrow';
+    text-align: center;
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: "Archivo Narrow";
+}
+
+h4 {
+    font-size: 1.25rem;
+    text-align: center;
+    font-family: "Archivo Narrow";
+
+}
+
+.contentWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 2vh;
+    width: 30%;
+    min-width: 15rem;
+    height: min-content;
+    margin: 2rem auto 2rem auto;
+    box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+.container > img {
+    width: 90%;
+    display: block;
+    margin: 10px auto -10px auto;
+}
+
+form {
+    margin: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Archivo Narrow';
+}
+
+form > input, label {
+    font-size: 1.3rem;
+    margin: 0.5rem;
+    color: rgb(25, 23, 23);
+    font-family: 'Tenor Sans';
+}
+
+input[type="text"], input[type="number"], input[type="email"] {
+    border: 1px solid rgba(55, 50, 46, 0.927);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+input[type="submit"]{
+    background-color: #19c5ff;
+    border-radius: 10px;
+    border: 1px solid #19c5ff;
+    padding: 10px;
+}
+
+input[type="submit"]:hover{
+    cursor: pointer;
+}
+
+input[type="submit"]:hover{
+    color: white;
+    transition: 0.15s ease-in-out;
+}
+
+input[type="submit"]:not(:hover){
+    color: black;
+    transition: 0.15s ease-in-out;
+}
+
+#memberForm {
+    width: 50%;
+    margin: 2rem auto;
+}
+
+#submission {
+    text-align: center;
+}
+
+.homeContent {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.homeContent section {
+    width: 100%;
+    font-size: 1.5rem;
+    color: rgba(55, 50, 46, 0.927);
+}
+
+.eventWrapper {
+    border-radius: 10px;
+    border: 1px solid rgba(55, 50, 46, 0.927);
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 65%;
+    margin-bottom: 1rem;
+}
+
+.titleWrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#eventTitle {
+    margin: 1rem 0 0 1rem;
+    font-family: 'Archivo Narrow';
+}
+
+#eventDate {
+    margin: 0.25rem 0.25rem 0 auto;
+}
+
+#eventDescription {
+    margin: 1rem 2rem;
+}
+
+.fullContent {
+    margin: 1rem 5%;
+    color: rgba(55, 50, 46, 0.927);
+}
+
+.fullContent > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.fullContent > div > div {
+    border: 1px solid rgba(55, 50, 46, 0.927);
+    margin: 1rem;
+    padding: 0 1rem;
+    border-radius: 10px;
+    max-width: 25rem;
+    min-width: 5rem;
+}
+
+.memberCard > img {
+    display: block;
+    width: 100%;
+    max-width: 20rem;
+    margin: 0 auto 1rem auto;
+    border-radius: 10px;
+}
+
+footer {
+    width: 93%;
+    margin: 1rem auto;
+    color: rgba(55, 50, 46, 0.927);
+    border-top: 1px solid rgba(55, 50, 46, 0.927);
+    font-family: 'Archivo Narrow';
+    display: flex;
+}
+
+footer > img {
+    margin: 1rem auto 2rem 1rem;
+    max-width: 100px;
+}
+
+footer > article {
+    margin-top: 1rem;
+    margin-right: 1rem;
+    text-align: center;
+}
+
+#footerContent > div > a {
+    margin: 0rem 0.5rem;
+}
+
+#footerContent > div > a > img {
+    width: 40px;
+}
+
+@media screen and (max-width: 600px) {
+    .eventWrapper {
+        width: 100%
+    }
+    .homeContent {
+        width: 90%;
+    }
+    .container {
+        width: 90%;
+    }
+    #memberForm {
+        width: 90%;
+    }
+    .fullContent {
+        margin: 1rem 5%;
+    }
+
+    nav > div > div {
+        margin: auto;
+    }
+    nav a {
+        font-size: 1.25rem;
+    }
+    nav img {
+        margin: auto auto 1rem auto;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    nav a {
+        font-size: 1.25rem;
+        margin: 0 0.2rem 0 0.2rem;
+    }
+}

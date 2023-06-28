@@ -1,1 +1,1 @@
-web: python3 manage.py migrate && python3 manage.py collectstatic && gunicorn zetaPsi.wsgi
+web: gunicorn zetaPsi.wsgi
