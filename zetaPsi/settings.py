@@ -80,16 +80,15 @@ WSGI_APPLICATION = 'zetaPsi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# Update database configuration from $DATABASE_URL.
+import dj_database_url
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
 ON_HEROKU = os.environ.get('ON_HEROKU')
 HEROKU_SERVER = os.environ.get('HEROKU_SERVER')
 
 if ON_HEROKU:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'postgresql',
-        }
-    }
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 else:
     DATABASES = {
         'default': {
@@ -149,10 +148,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = BASE_DIR/'media'
 MEDIA_URL = '/media/'
-
-# Update database configuration from $DATABASE_URL.
-# import dj_database_url
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 # Simplified static file serving.
 # https://pypi.org/project/whitenoise/
