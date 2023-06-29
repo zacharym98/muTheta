@@ -21,13 +21,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = '&B!716Ls7pEg1h&Y@%78h$jT4XJ!wiAEVVE5bYBLxn*lwbpJB6'
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '&B!716Ls7pEg1h&Y@%78h$jT4XJ!wiAEVVE5bYBLxn*lwbpJB6')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = True
-# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = ['mutheta-0f1d1d9db025.herokuapp.com','127.0.0.1','localhost']
 
@@ -82,10 +79,10 @@ WSGI_APPLICATION = 'zetaPsi.wsgi.application'
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'muTheta', 
-    'USER': 'postgres',
-    'PASSWORD': 'lionelmessi10',
-    'HOST': '127.0.0.1', 
+    'NAME': os.environ.get('DB_NAME'), 
+    'USER': os.environ.get('DB_USER'),
+    'PASSWORD': os.environ.get('DB_PASS'),
+    'HOST': os.environ.get('DB_HOST'), 
     'PORT': '5432',
     }
 }
@@ -148,3 +145,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 import django_heroku
 django_heroku.settings(locals())
+
+from dotenv import load_dotenv
+load_dotenv()
