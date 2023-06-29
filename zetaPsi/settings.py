@@ -80,20 +80,20 @@ WSGI_APPLICATION = 'zetaPsi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-ON_HEROKU = os.environ.get('ON_HEROKU')
-HEROKU_SERVER = os.environ.get('HEROKU_SERVER')
+# ON_HEROKU = os.environ.get('ON_HEROKU')
+# HEROKU_SERVER = os.environ.get('HEROKU_SERVER')
 
-if ON_HEROKU == None:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': env('DB_NAME'), 
-            'USER': env('DB_USER'),
-            'PASSWORD': env('DB_PASS'),
-            'HOST': env('DB_HOST'), 
-            'PORT': '5432',
-        }
-    }
+# if ON_HEROKU == None:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#             'NAME': env('DB_NAME'), 
+#             'USER': env('DB_USER'),
+#             'PASSWORD': env('DB_PASS'),
+#             'HOST': env('DB_HOST'), 
+#             'PORT': '5432',
+#         }
+#     }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
