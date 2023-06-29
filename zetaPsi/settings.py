@@ -80,16 +80,10 @@ WSGI_APPLICATION = 'zetaPsi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# Update database configuration from $DATABASE_URL.
-import dj_database_url
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-
 ON_HEROKU = os.environ.get('ON_HEROKU')
 HEROKU_SERVER = os.environ.get('HEROKU_SERVER')
 
-if ON_HEROKU:
-    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-else:
+if ON_HEROKU == None:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -155,3 +149,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 import django_heroku
 django_heroku.settings(locals())
+
+# Update database configuration from $DATABASE_URL.
+import dj_database_url
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
