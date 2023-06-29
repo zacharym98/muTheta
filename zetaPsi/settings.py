@@ -80,10 +80,9 @@ WSGI_APPLICATION = 'zetaPsi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# ON_HEROKU = os.environ.get('ON_HEROKU')
-# HEROKU_SERVER = os.environ.get('HEROKU_SERVER')
+# Uncomment out for local database
+# Remember to comment out dj_database_url and related lines
 
-# if ON_HEROKU == None:
 #     DATABASES = {
 #         'default': {
 #             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -151,5 +150,6 @@ import django_heroku
 django_heroku.settings(locals())
 
 # Update database configuration from $DATABASE_URL.
+# Comment out when working on local database
 import dj_database_url
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
