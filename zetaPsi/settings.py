@@ -142,7 +142,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # The following configs determine if files get served from the server or an S3 storage
-S3_ENABLED = config('S3_ENABLED', cast=bool, default=True)
+S3_ENABLED = config('S3_ENABLED', cast=bool, default=False)
 LOCAL_SERVE_MEDIA_FILES = config('LOCAL_SERVE_MEDIA_FILES', cast=bool, default=not S3_ENABLED)
 LOCAL_SERVE_STATIC_FILES = config('LOCAL_SERVE_STATIC_FILES', cast=bool, default=not S3_ENABLED)
 
