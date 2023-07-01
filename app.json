@@ -1,14 +1,28 @@
 {
-    "addons": [
-        {
-            "plan": "bucketeer:hobbyist",
-            "as": "BUCKETEER"
-        }
-    ],
+    "name": "muTheta",
+    "scripts": {},
     "env": {
-        "S3_ENABLED": {
-          "description": "Enable to upload & serve static and media files from S3",
-          "value": "True"
-        }
-    }
-}
+      "SECRET_KEY": {
+        "required": true
+      },
+      "S3_ENABLED": {
+        "description": "Enable to upload & serve static and media files from S3",
+        "value": "True"
+      }
+    },
+    "formation": {
+      "web": {
+        "quantity": 1
+      }
+    },
+    "addons": [{
+        "plan": "bucketeer:hobbyist",
+        "as": "BUCKETEER"
+    }],
+    "buildpacks": [
+      {
+        "url": "heroku/python"
+      }
+    ],
+    "stack": "heroku-22"
+  }
