@@ -152,7 +152,7 @@ MEDIA_URL = '/media/'
 # https://pypi.org/project/whitenoise/
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
 
 # Update database configuration from $DATABASE_URL.
 # Comment out when working on database
