@@ -159,3 +159,23 @@ django_heroku.settings(locals())
 # Comment out when working on database
 import dj_database_url
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
+
+sentry_sdk.init(
+    dsn="https://14296a0aaae941ada9f34e15f3451b81@o4505451496210432.ingest.sentry.io/4505451499749376",
+    integrations=[
+        DjangoIntegration(),
+    ],
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production.
+    traces_sample_rate=1.0,
+
+    # If you wish to associate users to errors (assuming you are using
+    # django.contrib.auth) you may enable sending PII data.
+    send_default_pii=True
+)
