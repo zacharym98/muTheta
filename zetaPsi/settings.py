@@ -152,10 +152,6 @@ MEDIA_URL = '/media/'
 # Simplified static file serving.
 # https://pypi.org/project/whitenoise/
 
-# Local
-# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-
-# Heroku
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 django_heroku.settings(locals())

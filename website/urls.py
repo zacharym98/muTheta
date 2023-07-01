@@ -11,5 +11,3 @@ urlpatterns = [
     path('members/', MemberList.as_view(), name="memberList"),
     path('join/', Join.as_view(), name="join"),
 ]
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
