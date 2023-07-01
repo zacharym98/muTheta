@@ -33,6 +33,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
+ADMINS = [("Zach", "zacharym98@outlook.com")]
 
 # Application definition
 
