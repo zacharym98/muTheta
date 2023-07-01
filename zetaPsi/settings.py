@@ -158,6 +158,7 @@ if S3_ENABLED:
     AWS_S3_ENDPOINT_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
     print("Enabled!")
+    print(AWS_ACCESS_KEY_ID)
 
 if not LOCAL_SERVE_STATIC_FILES:
     STATIC_DEFAULT_ACL = 'public-read'
