@@ -187,8 +187,8 @@ django_heroku.settings(locals())
 
 # Update database configuration from $DATABASE_URL.
 # Comment out when working on database
-import dj_database_url
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+# import dj_database_url
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
