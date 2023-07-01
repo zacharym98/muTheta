@@ -87,16 +87,12 @@ WSGI_APPLICATION = 'zetaPsi.wsgi.application'
 # Uncomment out for local database
 # Remember to comment out dj_database_url and related lines
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': env('DB_NAME'), 
-#         'USER': env('DB_USER'),
-#         'PASSWORD': env('DB_PASS'),
-#         'HOST': env('DB_HOST'), 
-#         'PORT': '5432',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
