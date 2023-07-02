@@ -44,8 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'storages',
     'website',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -86,12 +86,12 @@ WSGI_APPLICATION = 'zetaPsi.wsgi.application'
 # Uncomment out for local database
 # Remember to comment out dj_database_url and related lines
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -126,19 +126,45 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-# The URL to use when referring to static files (where they will be served from)
-STATIC_URL = '/static/'
+# # The URL to use when referring to static files (where they will be served from)
+# STATIC_URL = '/static/'
 
-# The absolute path to the directory where collectstatic will collect static files for deployment.
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# # The absolute path to the directory where collectstatic will collect static files for deployment.
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+# # Extra places for collectstatic to find static files.
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+# )
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+USE_S3 = os.getenv('USE_S3') == 'True'
+
+if USE_S3:
+    # aws settings
+    AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+    AWS_DEFAULT_ACL = None
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+    AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+    # s3 static settings
+    STATIC_LOCATION = 'static'
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+    # s3 public media settings
+    PUBLIC_MEDIA_LOCATION = 'media'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+else:
+    STATIC_URL = '/staticfiles/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 
 # Default primary key field type
@@ -149,14 +175,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Simplified static file serving.
 # https://pypi.org/project/whitenoise/
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
 
 # Update database configuration from $DATABASE_URL.
 # Comment out when working on database
-import dj_database_url
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+# import dj_database_url
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
