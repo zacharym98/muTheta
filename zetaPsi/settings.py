@@ -31,7 +31,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://mutheta-0f1d1d9db025.herokuapp.com']
+ALLOWED_HOSTS = ['mutheta-0f1d1d9db025.herokuapp.com']
 
 ADMINS = [("Zach", "zacharym98@outlook.com")]
 
