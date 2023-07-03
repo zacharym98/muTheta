@@ -31,9 +31,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
-
-ADMINS = [("Zach", "zacharym98@outlook.com")]
+ALLOWED_HOSTS = ['https://mutheta-0f1d1d9db025.herokuapp.com']
 
 # Application definition
 
@@ -50,7 +48,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -83,8 +80,7 @@ WSGI_APPLICATION = 'zetaPsi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# Uncomment out for local database
-# Remember to comment out dj_database_url and related lines
+# Local database config
 
 # DATABASES = {
 #     'default': {
@@ -93,7 +89,7 @@ WSGI_APPLICATION = 'zetaPsi.wsgi.application'
 #     }
 # }
 
-# Heroku PostGreSQL Database Config
+# Heroku database config
 import dj_database_url
 
 DATABASE_URL = os.getenv("DATABASE_URL")
@@ -120,7 +116,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -132,23 +127,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
-
-# # The URL to use when referring to static files (where they will be served from)
-# STATIC_URL = '/static/'
-
-# # The absolute path to the directory where collectstatic will collect static files for deployment.
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# # Extra places for collectstatic to find static files.
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'static'),
-# )
-
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-
+# AWS S3 config
 USE_S3 = os.getenv('USE_S3') == 'True'
 
 if USE_S3:
@@ -175,24 +154,12 @@ else:
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Simplified static file serving.
-# https://pypi.org/project/whitenoise/
-
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
-# django_heroku.settings(locals())
-
-# Update database configuration from $DATABASE_URL.
-# Comment out when working on database
-# import dj_database_url
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-
+# Log error entry
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
